@@ -9,11 +9,8 @@ class CustomerController extends Controller
 {
     public function index ()
     {
-        $customer = Customer::findOrFail(1);
-        return [
-            'firstName' => $customer->first_name,
-            'lastName' => $customer->last_name
-        ];
+        $customer = Customer::all();
+        return $customer;
        // return Customer::all();
     }
 }
