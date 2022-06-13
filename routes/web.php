@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SiteController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/customers', [CustomerController::class, 'index']);
+Route::get('/contact', [SiteController::class, 'index'])->name("contact");
+Route::post('/contact', [SiteController::class, 'processData'])->name("datos");
 
 /*Route::get('/customers', function() {
     return Customer::all([

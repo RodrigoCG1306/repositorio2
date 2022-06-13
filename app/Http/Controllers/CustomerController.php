@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index ()
+    public function index (Request $request)
     {
-        $customer = Customer::all();
-        return $customer;
-       // return Customer::all();
+        $name=$request->input("name");
+        return ["name"=>$name];
     }
 }
