@@ -19,15 +19,16 @@ class SiteController extends Controller
     {
         $customer=new Customer();
         $datos = $request->all();
-        $customer->first_name = $datos["user"];
-        $customer->last_name = "";
+        $customer->first_name = $datos["first_name"];
+        $customer->last_name = $datos["last_name"];
         $customer->email=$datos["email"];
+        $customer->phone_number=$datos["phone_number"];
         $customer->save(); 
 
         Mail::to("cazares.jose.gm@gmail.com")
         ->bcc("gameraleatorio7@gmail.com")
         ->send(new NotificationForm($datos));
-        
-        return $datos;
+
+        return redirect("/");
     }
 }
